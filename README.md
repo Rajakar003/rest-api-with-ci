@@ -1,3 +1,1 @@
-"# Restapiwith-api-library-in-codeligniter" 
-# rest-api-with-ci
-# rest-api-with-ci
+#Example of Implimenting api with Ci rest api library
