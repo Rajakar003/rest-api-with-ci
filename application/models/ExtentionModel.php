@@ -18,7 +18,15 @@ class  ExtentionModel extends CI_Model{
 	}
 	public function save($table,$data)
 	{
-       $this->db->insert($table,$data);
+	   $this->db->insert($table,$data);
+	   $id = $this->db->insert_id();
+	   $this->db->select("document.id,document.name,document.type,extention.name as extention,document.file");
+	   $this->db->from($table);
+	   $this->db->join('extention', 'extention.id = document.extenstion_id');
+	   $this->db->where('document.id',$id);
+	   $query=$this->db->get();
+	   return $query->result();
+
 	}
 
 	

@@ -38,8 +38,9 @@ class Documents extends REST_Controller  {
 			}else{
 				$data['file'] = $this->do_upload('files','assets/uploads/files');
 				$data['create_at']=date('Y-m-d h:m:s');
-				$this->Common->save('document',$data);
-				$responsedata =["stat"=>true,"msg"=>"document has been saved successfully"];
+				$data = $this->Common->save('document',$data);
+
+				$responsedata =["stat"=>true,"msg"=>"document has been saved successfully",'data'=>$data];
 				$this->response($responsedata, REST_Controller::HTTP_OK);
 			}
 			
@@ -72,6 +73,7 @@ class Documents extends REST_Controller  {
             $file_name = $data[0]['file_name'];
             return  $file_name;
         }
-    }
+	}
+	
 
 }
